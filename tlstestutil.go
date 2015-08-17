@@ -48,7 +48,7 @@ func CA(t *testing.T, rnd io.Reader) (*x509.Certificate, *x509.CertPool, *ecdsa.
 		rnd = rand.Reader
 	}
 	var err error
-	caPrivKey, err := ecdsa.GenerateKey(elliptic.P224(), rnd)
+	caPrivKey, err := ecdsa.GenerateKey(elliptic.P256(), rnd)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -81,7 +81,7 @@ func Cert(t *testing.T, caCert *x509.Certificate, caPrivKey *ecdsa.PrivateKey, h
 	if rnd == nil {
 		rnd = rand.Reader
 	}
-	privKey, err := ecdsa.GenerateKey(elliptic.P224(), rnd)
+	privKey, err := ecdsa.GenerateKey(elliptic.P256(), rnd)
 	if err != nil {
 		t.Fatal(err)
 	}
